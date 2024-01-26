@@ -95,7 +95,9 @@ def normalize_rnaseq_sample_id(
     return sample_id
 
 
-def switch_account_for_gtex(batch_job):
+def switch_account_for_gtex(
+        batch_job:hailtop.batch.job.Bashjob,
+):
     """
     Switch to use Google account for access to GTEx samples.
 
@@ -107,7 +109,9 @@ def switch_account_for_gtex(batch_job):
                                        gcloud_project=GCLOUD_PROJECT)
 
 
-def gcloud_auth_activate_service_account(batch_job):
+def gcloud_auth_activate_service_account(
+        batch_job: hailtop.batch.job.Bashjob,
+):
     """
     Utility method to active gcloud auth using the Hail Batch-provided service account.
 
@@ -117,10 +121,12 @@ def gcloud_auth_activate_service_account(batch_job):
         f"gcloud auth activate-service-account --key-file /gsa-key/key.json")
 
 
-def switch_gcloud_auth_to_user_account(batch_job,
-                                       gcloud_credentials_path,
-                                       gcloud_user_account,
-                                       gcloud_project):
+def switch_gcloud_auth_to_user_account(
+        batch_job: hailtop.batch.job.Bashjob,
+        gcloud_credentials_path: str,
+        gcloud_user_account: str,
+        gcloud_project: str,
+):
     """
     Switch from using GCP service account to Google account.
 
