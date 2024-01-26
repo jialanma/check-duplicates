@@ -81,7 +81,7 @@ Airtable token.
 
 
 def normalize_rnaseq_sample_id(
-        sample_id: str,
+    sample_id: str,
 ):
     """
     Normalize the format of a sample ID: substitute "." with "-" and get rid of
@@ -96,7 +96,7 @@ def normalize_rnaseq_sample_id(
 
 
 def switch_account_for_gtex(
-        batch_job:hailtop.batch.job.Bashjob,
+    batch_job: hailtop.batch.job.Bashjob,
 ):
     """
     Switch to use Google account for access to GTEx samples.
@@ -110,7 +110,7 @@ def switch_account_for_gtex(
 
 
 def gcloud_auth_activate_service_account(
-        batch_job: hailtop.batch.job.Bashjob,
+    batch_job: hailtop.batch.job.Bashjob,
 ):
     """
     Utility method to active gcloud auth using the Hail Batch-provided service account.
@@ -122,10 +122,10 @@ def gcloud_auth_activate_service_account(
 
 
 def switch_gcloud_auth_to_user_account(
-        batch_job: hailtop.batch.job.Bashjob,
-        gcloud_credentials_path: str,
-        gcloud_user_account: str,
-        gcloud_project: str,
+    batch_job: hailtop.batch.job.Bashjob,
+    gcloud_credentials_path: str,
+    gcloud_user_account: str,
+    gcloud_project: str,
 ):
     """
     Switch from using GCP service account to Google account.
@@ -156,9 +156,9 @@ def switch_gcloud_auth_to_user_account(
 
 
 def get_table(
-        base_id: str,
-        table_id: str,
-        view_id: str,
+    base_id: str,
+    table_id: str,
+    view_id: str,
 ):
     """
     Get the data table from Airtable.
@@ -175,9 +175,9 @@ def get_table(
 
 
 def read_from_airtable(
-        base_id: str,
-        table_id: str,
-        view_id: str,
+    base_id: str,
+    table_id: str,
+    view_id: str,
 ):
     """
     Get the data table as a pandas DataFrame from Airtable.
@@ -198,9 +198,9 @@ def read_from_airtable(
 
 
 def map_airtable_and_sample_id(
-        base_id: str,
-        table_id: str,
-        view_id: str,
+    base_id: str,
+    table_id: str,
+    view_id: str,
 ):
     """
     Create a Python dictionary that maps RNA-seq sample IDs to their record IDs in
@@ -222,10 +222,10 @@ def map_airtable_and_sample_id(
 
 
 def get_missing_records(
-        base_id: str,
-        table_id: str,
-        view_id: str,
-        column: str,
+    base_id: str,
+    table_id: str,
+    view_id: str,
+    column: str,
 ):
     """
     Get the records that have an empty value in the specified column in Airtable.
@@ -251,12 +251,12 @@ def get_missing_records(
 
 
 def write_to_airtable(
-        base_id: str,
-        table_id: str,
-        new_records: list,
-        to_replace: bool = False,
-        fields_to_match: list = ["sample_id"],
-        re_sequenced: bool = False,
+    base_id: str,
+    table_id: str,
+    new_records: list,
+    to_replace: bool = False,
+    fields_to_match: list = ["sample_id"],
+    re_sequenced: bool = False,
 ):
     """
     Update current records or insert new records to the Airtable.
@@ -279,12 +279,12 @@ def write_to_airtable(
 
 
 def inner_join_two_tables_into_df(
-        base_id1: str,
-        table_id1: str,
-        view_id1: str,
-        base_id2: str,
-        table_id2: str,
-        view_id2: str,
+    base_id1: str,
+    table_id1: str,
+    view_id1: str,
+    base_id2: str,
+    table_id2: str,
+    view_id2: str,
 ):
     """
     Inner join two Airtable data tables and remove duplicated columns.
