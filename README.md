@@ -1,3 +1,5 @@
+# check_duplicates
+
 The pipeline generates read counts and QC reports and marks the duplicated reads in RNA-seq data.
 
 The pipeline runs on Hail Batch on GCP.
